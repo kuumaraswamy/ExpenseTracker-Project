@@ -1,11 +1,11 @@
 // import logo from "./logo.svg";
 import "./App.css";
-import FormComponent from "./components/FormComponent";
+import Authentication from "./components/Login/Authentication";
 
 function App() {
   return (
     <>
-      <FormComponent />
+      <Authentication />
     </>
   );
 }
