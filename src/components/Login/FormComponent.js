@@ -258,20 +258,33 @@ function FormComponent(props) {
       }
   //Signup form authentication method
   
+  //sigin form authentication method
+  const LemailInputRef = useRef('');
+  const LpasswordInputRef = useRef('');
+
+  const LsubmitHandler = (event) => {
+      event.preventDefault();
+      
+      const enteredEmail = LemailInputRef.current.value;
+      const enteredPassword = LpasswordInputRef.current.value;
+      props.onLogin(enteredEmail, enteredPassword);
+  }
+  //Signup form authentication method
   return (
     <>
       {" "}
       <BackgroundBox clicked={click}>
         <ButtonAnimate clicked={click} onClick={handleClick}></ButtonAnimate>
 
-        <Form className="signin">
+        <Form className="signin" onSubmit={LsubmitHandler}>
           <Title>Sign In</Title>
-          <Input type="email" name="email" id="emailId" placeholder="Email"  />
+          <Input type="email" name="email" id="emailId" placeholder="Email" required ref={LemailInputRef} />
           <Input
             type="password"
             name="password"
             id="passwordId"
             placeholder="Password"
+            required ref={LpasswordInputRef}
           />
           <Link href="#">Forgot Your Password?</Link>
           <Button>Sign In</Button>
