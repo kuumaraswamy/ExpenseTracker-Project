@@ -257,7 +257,7 @@ function FormComponent(props) {
         }
       }
   //Signup form authentication method
-
+  
   return (
     <>
       {" "}
