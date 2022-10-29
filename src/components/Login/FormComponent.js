@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef} from "react";
 import styled, { keyframes } from "styled-components";
+
 
 const move = keyframes`
 0%{
@@ -10,7 +11,6 @@ const move = keyframes`
     opacity:1;
 
 }
-
 `;
 const BackgroundBox = styled.div`
   background-color: #beeefb;
@@ -235,9 +235,29 @@ const Text = styled.div`
   }
 `;
 
-function FormComponent() {
+function FormComponent(props) {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
+
+  //Signup form authentication method
+    const emailInputRef = useRef();
+    const passwordInputRef = useRef();
+    const confirmPasswordInputRef = useRef();
+
+    const submitHandler = (event) => {
+        event.preventDefault();
+        const enteredEmail = emailInputRef.current.value;
+        const enteredPassword = passwordInputRef.current.value;
+        const enteredcConfirmPassword = confirmPasswordInputRef.current.value;
+
+        if (enteredPassword !== enteredcConfirmPassword){
+          alert('Incorrect Password');
+        } else {
+          props.onSignUp(enteredEmail, enteredcConfirmPassword)
+        }
+      }
+  //Signup form authentication method
+
   return (
     <>
       {" "}
@@ -246,7 +266,7 @@ function FormComponent() {
 
         <Form className="signin">
           <Title>Sign In</Title>
-          <Input type="email" name="email" id="emailId" placeholder="Email" />
+          <Input type="email" name="email" id="emailId" placeholder="Email"  />
           <Input
             type="password"
             name="password"
@@ -256,23 +276,25 @@ function FormComponent() {
           <Link href="#">Forgot Your Password?</Link>
           <Button>Sign In</Button>
         </Form>
-
-        <Form className="signup">
-        
+      
+        <Form className="signup" onSubmit={submitHandler}>
           <Title>Sign Up</Title>
-          <Input type="email" name="email" id="emailId" placeholder="Email" />
+          <Input type="email" name="email" id="emailId" placeholder="Email" required ref={emailInputRef}/>
           <Input
             type="password"
             name="password"
             id="passwordId"
             placeholder="Password"
+            required
+            ref={passwordInputRef}
           />
-          {/* <Input type="email" name="email" id="emailId" placeholder="Email" /> */}
           <Input
             type="password"
-            name="conformPassword"
-            id="conformPasswordId"
+            name="password"
+            id="confirmPasswordId"
             placeholder="Confirm Password"
+            required
+            ref={confirmPasswordInputRef}
           />
           <Link href="#" onClick={handleClick}>
             Already have an Account?
