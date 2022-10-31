@@ -1,10 +1,11 @@
 // import logo from "./logo.svg";
 import React,{Fragment,useContext} from "react";
-import {Switch} from "react-router-dom"
+import {Switch,Route} from "react-router-dom"
 import "./App.css";
 import Authentication from "./components/Login/Authentication";
 import AuthContext from "./Store/auth-context";
-import DummyPage from "./components/DummyPage";
+import HeaderPage from "./components/Layout/HeaderPage";
+import ProfileForm from "./components/Layout/ProfileForm";
 
 function App() {
   const authCntx = useContext(AuthContext);
@@ -20,9 +21,14 @@ function App() {
                /* </Route> */
             )}
             { authCntx.isLogin && (
-              // <Route path="/dummyPage">
-                <DummyPage />
-              // </Route>
+              <Route exact path="/" component={HeaderPage}>
+                {/* <HeaderPage /> */}
+               </Route> 
+            )}
+            { authCntx.isLogin && (
+               <Route path="/" >
+                <ProfileForm />
+              </Route>
             )}
       </Switch>
   

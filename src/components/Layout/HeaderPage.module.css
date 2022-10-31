@@ -1,0 +1,36 @@
+.button {
+    border-top: 1px solid #96d1f8;
+    background: #edb4b4;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+    background: -webkit-linear-gradient(top, #edb4b4, #edb4b4);
+    background: -moz-linear-gradient(top, #c2c6c8, #caccce);
+    background: -ms-linear-gradient(top, #b3b7bc, #d9dfe2);
+    background: -o-linear-gradient(top, #cfd7dc, #e6e6e7);
+    padding: 2px 4px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: white;
+    font-size: 16px;
+    font-family: Georgia, Serif;
+    text-decoration: none;
+    vertical-align: middle;
+    }
+ .button:hover {
+    border-top-color: #28597a;
+    background: rgb(42, 29, 29);
+    color: #ccc;
+    }
+ .button:active {
+    border-top-color: #1b435e;
+    background: #1b435e;
+    }
+.body{
+    background-color: #c2c6c8;
+}
+
+    
