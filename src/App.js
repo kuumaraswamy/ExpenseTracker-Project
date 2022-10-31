@@ -20,16 +20,13 @@ function App() {
                 <Authentication />
                /* </Route> */
             )}
-            { authCntx.isLogin && (
-              <Route exact path="/" component={HeaderPage}>
-                {/* <HeaderPage /> */}
-               </Route> 
-            )}
-            { authCntx.isLogin && (
-               <Route path="/" >
-                <ProfileForm />
-              </Route>
-            )}
+            
+            <Route>
+              {authCntx.isLogin && <HeaderPage/>}
+              {authCntx.isLogin && <ProfileForm/>}
+            </Route>
+             
+
       </Switch>
   
     </Fragment>
@@ -38,3 +35,9 @@ function App() {
 }
 
 export default App;
+
+
+/* <Route path='/profile'>
+{isLogin && <ProfilePage />}
+{!isLogin && <Redirect to='/auth' />}
+</Route> */

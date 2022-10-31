@@ -16,7 +16,7 @@ const HeaderPage = () => {
         <Text p={4} fontWeight='bold' color="black"><h1>Welcome To Expense Tracker !!</h1></Text>
         <Box mx='auto' />
         <Link variant='nav' href='./ProfileForm'>
-          <button className={classes.button} >Your Profile Is Incomplete <a href="./profileForm">Complete now</a>  </button>
+          <button className={classes.button} > Profile </button>
         </Link>
       </Flex>
 
