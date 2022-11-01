@@ -6,11 +6,16 @@ import Authentication from "./components/Login/Authentication";
 import AuthContext from "./Store/auth-context";
 import HeaderPage from "./components/Layout/HeaderPage";
 import ProfileForm from "./components/Layout/ProfileForm";
+import VerifyEmail from "./components/Layout/VerifyEmail";
+import Home from "./components/Pages/Home";
+import Profile from "./components/Pages/Profile";
+import ExpenseItem from "./components/Pages/ExpenseItem";
 
 function App() {
   const authCntx = useContext(AuthContext);
   return (
-  
+
+
     <Fragment>
       {/* <Authentication /> */}
     
@@ -20,13 +25,25 @@ function App() {
                 <Authentication />
                /* </Route> */
             )}
+        <main>
             
-            <Route>
+            <Route path>
               {authCntx.isLogin && <HeaderPage/>}
-              {authCntx.isLogin && <ProfileForm/>}
+              {!authCntx.isLogin && <ProfileForm/>}
+              {!authCntx.isLogin && <VerifyEmail/>}
+            </Route>
+            <Route path='/Home' exact component={Home}>
+              <Home/>
+            </Route> 
+            <Route path="/Profile" component={Profile}>
+              
+            </Route>
+            <Route path="/ExpenseItem" component={ExpenseItem}>
+
             </Route>
              
-
+             
+        </main>
       </Switch>
   
     </Fragment>

@@ -3,25 +3,31 @@ import AuthContext from "./auth-context";
 
 
 const AuthProvider = (props) => {
-    const initialToken = localStorage.getItem('token');
+    const initialToken = localStorage.getItem('idtoken');
+    const initialEmail = localStorage.getItem("email");
     const [token, setToken] = useState(initialToken);
+    const [email, setEmail] = useState(initialEmail);
     const userIsLoggedIn = !!token;
 
     const loginHandler = (token) => {
         setToken(token);
-        localStorage.setItem('token', token);
+        setEmail(email);
+        localStorage.setItem('idtoken', token);
+        localStorage.setItem('email', email);
     };
     
-    // const logoutHandler = () => {
-    //     setToken(null);
-    //     localStorage.removeItem('token');
-    // };
+    const logoutHandler = () => {
+        setToken(null);
+        localStorage.removeItem('idtoken');
+        localStorage.removeItem('email');
+    };
 
     const contextValue = {
         token: token,
+        email: email,
         isLogin: userIsLoggedIn,
         login: loginHandler,
-        // logout: logoutHandler
+        logout: logoutHandler
     }
 
     return (

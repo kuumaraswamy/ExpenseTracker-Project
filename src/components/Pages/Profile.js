@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import axios from 'axios';
-import classes from './ProfileForm.module.css';
+import classes from './Profile.module.css';
 import { BsGithub, BsGlobe } from 'react-icons/bs';
 import { useContext, useRef, useEffect } from 'react';
 import AuthContext from '../../Store/auth-context';
+import VerifyEmail from '../Layout/VerifyEmail';
 
 
-const ProfileForm = (props) => {
+const Profile = (props) => {
       const nameInputRef = useRef('');
       const urlInputRef = useRef('');
       const authCntx = useContext(AuthContext);
@@ -53,6 +54,7 @@ const ProfileForm = (props) => {
     };
     
     return (
+        <Fragment>
         <section className={classes['user-profile']}>
                 <h1>Complete Your Profile</h1>
             <form onSubmit={updateProfiletHandler}>
@@ -76,12 +78,15 @@ const ProfileForm = (props) => {
                     />
                 <button>Update</button>
             </form>
-        
+            <VerifyEmail/> 
         </section>
-
         
+       
+        
+        
+        </Fragment>
     
     )
 };
 
-export default ProfileForm;
+export default Profile;

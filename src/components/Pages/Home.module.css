@@ -1,0 +1,13 @@
+.center {
+    width: 100%;
+    max-width: 100rem;
+    margin-top: 120px;
+    margin: 20rem auto ;
+    text-align: start;
+    
+    }
+    .center h1{
+        text-align: center;
+        font-size: 100px;
+        /* font-weight: 700; */
+      }
