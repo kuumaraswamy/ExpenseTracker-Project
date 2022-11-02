@@ -1,0 +1,12 @@
+/* .div {
+    background-color: #ECD8A1;
+    min-height: 100vh;
+  }
+   */
+   .div {
+    width: 100%;
+    max-width: 20rem;
+    margin: 1rem auto;
+    padding: 12px;
+    border: 0px solid rgb(215, 215, 215);
+  }

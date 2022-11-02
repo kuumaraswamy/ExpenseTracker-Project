@@ -21,7 +21,7 @@ const HeaderPage = () => {
       <Flex
           px={100}
           color='white'
-          bg='#F3F3F3'
+          bg='#EAAF7F'
           alignItems='center'>
         <Text p={4} fontWeight='bold' color="black"><h1>Welcome To Expense Tracker !!</h1></Text>
         <Box mx='auto' />

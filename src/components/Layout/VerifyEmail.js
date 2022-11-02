@@ -8,10 +8,10 @@ const Profile = () => {
     const authCntx = useContext(AuthContext);
 
     const verifyEmailHandler = () => {
-        const res = axios.post('https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyAtKiPgxUqIRvYCh_r31wlNnUDTunA-T2M',
+        const resp = axios.post('https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyAtKiPgxUqIRvYCh_r31wlNnUDTunA-T2M',
         {idToken: authCntx.token, requestType:'VERIFY_EMAIL'}
             ).then((res) => {
-                console.log(res);
+                console.log(resp);
         }).catch((err) => {
             console.log(err);
             alert(err);

@@ -1,0 +1,100 @@
+/* .expense {
+    width: 100%;
+    max-width: 35rem;
+    margin: rem auto;
+    padding: 12px;
+    border: 1px solid rgb(215, 215, 215);
+  } */
+  .expense button {
+    width: 10%;
+    padding: 1  0px;
+    margin: 1rem 1 1rem 0;
+    border: none;
+    background-color: rgb(53, 158, 243);
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 100;
+  }
+ 
+  .expense input:active,
+  .expense Input:focus{
+    background-color: rgb(203, 234, 255);
+    font-size: large;
+    
+  }
+  .list{
+    width: 40%;
+    
+    max-width: 35  0rem;
+    margin: 4px auto;
+    margin-top: 10px 0;
+    padding: 30px;
+    border: 1px solid rgb(215, 215, 215);
+    font-weight: 300px;
+    font-size: large;
+    letter-spacing: 2px;
+    
+   
+
+  }
+  .list li{
+    row-gap: 50px;
+    margin: 15px 0;
+  }
+  .list button{
+    width: 12%;
+    margin-right: 10px;
+    padding: 1  0px;
+    margin: 1rem 1 1rem 0;
+    border: none;
+    background-color: rgb(53, 158, 243);
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 100;
+  }
+  
+  /* .expense input, select{
+    margin: 0 auto;
+    padding: 10px;
+    border: 0.5px solid rgb(215, 215, 215);
+    margin-bottom: 0.85rem;
+    font-size: 18px;
+    border-radius: 5px;
+    width: 95%;
+    transition: background-color 1s;
+  }
+  
+  .expense h1 {
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .expense input:hover,
+  .expense input:active,
+  .expense input:focus {
+    background-color: rgb(203, 234, 255);
+  }
+  
+  .expense button {
+    width: 95%;
+    padding: 8px;
+    margin: 1rem 0 1rem 0;
+    border: none;
+    background-color: rgb(53, 158, 243);
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 100;
+  }
+
+  .list{
+    margin-left: 25rem;
+    width: 50%;
+  }
+
+   */
