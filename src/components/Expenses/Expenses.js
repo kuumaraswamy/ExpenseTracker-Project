@@ -15,6 +15,21 @@ const Expenses = () => {
         const categoryRef = useRef('');
         const [expenses, setExpenses] = useState([]);
 
+
+    const getExpenseData = () => {
+        axios.get(
+            'https://expensetracker-cc1ac-default-rtdb.firebaseio.com/Expenses.json'
+            ).then((res) => {
+                console.log(res.data);
+                setExpenses(res.data);
+            }).catch((err) => {
+                console.log(err);
+            })
+    };
+    useEffect( getExpenseData , []);
+
+
+
         useEffect(() => {
             const resp = axios.get(
                 'https://expensetracker-cc1ac-default-rtdb.firebaseio.com/Expenses.json'
@@ -51,6 +66,26 @@ const Expenses = () => {
                 console.log(err);
             }
             
+        };
+
+        //delete Expenses from
+        const deleteExpenseHandler = (expenseId) => {
+            axios.delete(
+                `https://expensetracker-cc1ac-default-rtdb.firebaseio.com/Expenses/${expenseId}.json`
+            ).then((res) => {
+                console.log(res);
+               getExpenseData();
+            }).catch((err) => {
+                console.log(err);
+            })
+        };
+    // Edit Expense Data
+
+        const editExpenseHandler = (expenseId) => {
+            expenseRef.current.value = expenses[expenseId].amount;
+            descriptionRef.current.value = expenses[expenseId].description;
+            categoryRef.current.value = expenses[expenseId].category;
+            deleteExpenseHandler(expenseId);
         };
 
   return (
@@ -102,16 +137,16 @@ const Expenses = () => {
         </Box>
      </form>
      <div className={classes.list}>
-                {expenses.map((expense) => {
+                {Object.keys(expenses).map((expense) => {
                     return (
                         
                         <ul>
                             <li>
-                                <span> ₹ {expense.amount} </span>
-                                <span> for ( {expense.description} ) </span>
-                                <span>  {expense.category}</span>
-                                <button className={classes.button}>Edit</button> 
-                                <button className={classes.button}>Delete</button>
+                                <span> ₹ {expenses[expense].amount} </span>
+                                <span> for ( {expenses[expense].description}) </span>
+                                <span>  { expenses[expense].category }</span>
+                                <button className={classes.button} onClick={() => editExpenseHandler(expense)}>Edit</button> 
+                                <button className={classes.button} onClick={() => deleteExpenseHandler(expense)}>Delete</button>
                                 
                             </li>
                         </ul>
