@@ -21,9 +21,10 @@ const HeaderPage = () => {
       <Flex
           px={100}
           color='white'
-          bg='#EAAF7F'
+          bg='#FFFAF0'
+          border-color='1px solid black'
           alignItems='center'>
-        <Text p={4} fontWeight='bold' color="black"><h1>Welcome To Expense Tracker !!</h1></Text>
+        <Text p={4} fontWeight='bold' color="black" fontFamily= "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><h1>Welcome To Expense Tracker !!</h1></Text>
         <Box mx='auto' />
         {/* <Link variant='nav' to={'./Home'}>
         

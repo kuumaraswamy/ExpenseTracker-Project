@@ -1,4 +1,5 @@
 import React, { useState, useRef} from "react";
+
 import styled, { keyframes } from "styled-components";
 
 
@@ -118,6 +119,9 @@ const Box2 = styled.div`
     props.clicked ? "23px 0 0 23px" : "0 23px 23px 0"};
 `;
 
+
+
+
 const Form = styled.form`
   color: #1b1b1b;
   display: flex;
@@ -236,6 +240,7 @@ const Text = styled.div`
 `;
 
 function FormComponent(props) {
+  
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
 
@@ -270,6 +275,8 @@ function FormComponent(props) {
       props.onLogin(enteredEmail, enteredPassword);
   }
   //Signup form authentication method
+  
+  
   return (
     <>
       {" "}
@@ -286,7 +293,7 @@ function FormComponent(props) {
             placeholder="Password"
             required ref={LpasswordInputRef}
           />
-          <Link href="#">Forgot Your Password?</Link>
+          <Link href="#"  >Forgot Your Password?</Link>
           <Button>Sign In</Button>
         </Form>
       
@@ -315,6 +322,37 @@ function FormComponent(props) {
           <Button>Sign Up</Button>
         </Form>
 
+
+
+ {/* //For forgot password
+    <Form className="signup" >
+          <Title>Update Password</Title>
+          <Input
+            type="password"
+            name="password"
+            id="passwordId"
+            placeholder="Password"
+            required
+            ref={passwordInputRef}
+          />
+          <Input
+            type="password"
+            name="password"
+            id="confirmPasswordId"
+            placeholder="Confirm Password"
+            required
+            ref={confirmPasswordInputRef}
+          />
+          <Link href="#" onClick={handleClick}>
+            Already have an Account?
+          </Link>
+          <Button>Update</Button>
+        </Form> */}
+
+
+
+
+
         <Text className="text1" clicked={click}>
           <h1>Welcome!</h1>
           Don't have an account?
@@ -330,6 +368,9 @@ function FormComponent(props) {
           <span className="attention">Click on Emoji</span>
           <span className="attention-icon">⤷</span>
         </Text>
+
+
+
 
         <Box1 clicked={click} />
         <Box2 clicked={click} />

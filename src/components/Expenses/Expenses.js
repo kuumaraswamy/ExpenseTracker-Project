@@ -1,4 +1,5 @@
-import  {Fragment,useState ,useRef} from 'react'
+import axios  from 'axios'
+import  {Fragment,useState ,useRef,useEffect} from 'react'
 import {
   Input,
   Select,
@@ -14,22 +15,43 @@ const Expenses = () => {
         const categoryRef = useRef('');
         const [expenses, setExpenses] = useState([]);
 
-    
+        useEffect(() => {
+            const resp = axios.get(
+                'https://expensetracker-cc1ac-default-rtdb.firebaseio.com/Expenses.json'
+                ).then((res) => {
+                    console.log(resp.data);
+                    const retrivedObjValues = Object.values(resp.data);
+                    console.log(retrivedObjValues);
+                    setExpenses(retrivedObjValues);
+                }).catch((err) => {
+                    console.log(err);
+                })
+        }, []);
 
-    const submitHandler = (event) => {
-        event.preventDefault();
-    
-        const enteredExpense = expenseRef.current.value;
-        const enteredDescription = descriptionRef.current.value;
-        const enteredCategory = categoryRef.current.value;
-    
-        const expenseObj = {
-            amount: enteredExpense,
-            description: enteredDescription,
-            category: enteredCategory
+        const submitHandler = async(event) => {
+            event.preventDefault();
+        
+            const enteredExpense = expenseRef.current.value;
+            const enteredDescription = descriptionRef.current.value;
+            const enteredCategory = categoryRef.current.value;
+        
+            const expenseObj = {
+                amount: enteredExpense,
+                description: enteredDescription,
+                category: enteredCategory
+            };
+        
+            try {
+                const res = await axios.post('https://expensetracker-cc1ac-default-rtdb.firebaseio.com/Expenses.json',
+                expenseObj );
+                console.log(res);
+                setExpenses( [...expenses, expenseObj] );
+                
+            } catch (err) {
+                console.log(err);
+            }
+            
         };
-        setExpenses( [...expenses, expenseObj] );
-    };
 
   return (
     <Fragment>
@@ -54,6 +76,7 @@ const Expenses = () => {
                     id='name'
                     name='name'
                     defaultValue='Description'
+                    placeholder='Description'
                     ref={descriptionRef}
                     required
                 />
@@ -84,7 +107,7 @@ const Expenses = () => {
                         
                         <ul>
                             <li>
-                                <span>Rupees {expense.amount} </span>
+                                <span> ₹ {expense.amount} </span>
                                 <span> for ( {expense.description} ) </span>
                                 <span>  {expense.category}</span>
                                 <button className={classes.button}>Edit</button> 
