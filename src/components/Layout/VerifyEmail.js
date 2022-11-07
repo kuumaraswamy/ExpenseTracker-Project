@@ -19,6 +19,7 @@ const Profile = () => {
       };
 
     return (
+        
         <section className={classes.profile}>
             {/* <h1>Complete Your Profile</h1> */}
             

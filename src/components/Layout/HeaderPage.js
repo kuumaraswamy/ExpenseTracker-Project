@@ -5,6 +5,7 @@ import { authAction } from '../../Store/auth-reducer';
 import { Flex,Text,Box,button} from 'rebass'
 // import AuthContext from '../../Store/auth-context'
 import classes from "./HeaderPage.module.css"
+import logo from '../../logo1.png'
 
 
 
@@ -28,6 +29,10 @@ const HeaderPage = () => {
           bg='#FFFAF0'
           border-color='1px solid black'
           alignItems='center'>
+            <div className={classes.img}>
+            <img src={logo} width="50" height="50" alt=""></img>
+            </div>
+        
         <Text p={4} fontWeight='bold' color="black" fontFamily= "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"><h1>Welcome To Expense Tracker !!</h1></Text>
         <Box mx='auto' />
         {/* <Link variant='nav' to={'./Home'}>

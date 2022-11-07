@@ -2,3 +2,10 @@
     padding: 30px;
     background: #ececec;
   }
+  .profile p{
+    text-align: center;
+  }
+  .profile h2{
+    text-align: center;
+    margin:1rem
+  }

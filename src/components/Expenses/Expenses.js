@@ -122,7 +122,7 @@ const Expenses = () => {
                 <Input
                     id='name'
                     name='name'
-                    defaultValue='Description'
+                    // defaultValue='Description'
                     placeholder='Description'
                     ref={descriptionRef}
                     required
