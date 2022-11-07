@@ -15,7 +15,8 @@
     color: white;
     cursor: pointer;
     font-size: 10px;
-    font-weight: 100;
+    font-weight: 500;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
   }
  
   .expense input:active,
@@ -26,10 +27,9 @@
   }
   .list{
     width: 40%;
-    
-    max-width: 35  0rem;
-    margin: 4px auto;
-    margin-top: 10px 0;
+    max-width: 35  auto;
+    margin: 6px auto;
+    margin-top: 10px 10px;
     padding: 30px;
     border: 1px solid rgb(215, 215, 215);
     font-weight: 300px;
@@ -98,3 +98,13 @@
   }
 
    */
+   .butn{
+    width: 70%;
+    max-width: 13rem;
+    margin: 3rem 65rem;
+    padding: 10px;
+    border: 0px solid rgb(215, 215, 215);
+    border-radius: 45px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
+   }

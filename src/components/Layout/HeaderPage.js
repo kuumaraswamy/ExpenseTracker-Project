@@ -1,7 +1,9 @@
-import {useContext} from 'react'
+// import {useContext} from 'react'
 import { useHistory } from 'react-router';
+import { useSelector, useDispatch } from 'react-redux';
+import { authAction } from '../../Store/auth-reducer';
 import { Flex,Text,Box,button} from 'rebass'
-import AuthContext from '../../Store/auth-context'
+// import AuthContext from '../../Store/auth-context'
 import classes from "./HeaderPage.module.css"
 
 
@@ -9,11 +11,13 @@ import classes from "./HeaderPage.module.css"
 
 
 const HeaderPage = () => {
-  
-   const authCntx = useContext(AuthContext)
+  const isLogin = useSelector((state) => state.authentication.isLogin)
+    console.log(isLogin, "in header");
+    const dispatch = useDispatch()
+  //  const authCntx = useContext(AuthContext)
    const history = useHistory();
   const logoutHandler = () =>{
-    authCntx.logout()
+    dispatch(authAction.logout());
   }
   
   return (

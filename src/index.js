@@ -3,17 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import AuthProvider from './Store/AuthProvider';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './Store/index'
 
 ReactDOM.render(
-  <AuthProvider>
+  <Provider store={store}>
 
     <BrowserRouter>
       <App />
     </BrowserRouter>
   
-  </AuthProvider>,
+  </Provider>,
   document.getElementById('root')
 );
 

@@ -1,12 +1,16 @@
 
-import React,{Fragment, useContext} from 'react'
+import React,{Fragment} from 'react'
+import { useDispatch } from "react-redux";
+import { authAction } from "../../Store/auth-reducer";
 
 import FormComponent from './FormComponent'
-import AuthContext from '../../Store/auth-context'
+import { useHistory } from "react-router-dom";
+// import AuthContext from '../../Store/auth-context'
 
 const Authentication = () => {
-   
-    const authCntx = useContext(AuthContext);
+   const dispatch = useDispatch();
+   const history = useHistory();
+    // const authCntx = useContext(AuthContext);
     const SignUpHandler = (email, password) => {
          fetch(
                 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAtKiPgxUqIRvYCh_r31wlNnUDTunA-T2M',
@@ -43,6 +47,7 @@ const Authentication = () => {
     
 //Login handler code for firebase authentication
     const LoginHandler = (email, password) => {
+     
         fetch(
             'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAtKiPgxUqIRvYCh_r31wlNnUDTunA-T2M',
             {
@@ -68,9 +73,11 @@ const Authentication = () => {
             }
         })
         .then((data) => {
-            authCntx.login(data.idToken)
+          const loginObj={idToken: data.idToken, email: data.email}
+           dispatch(authAction.login(loginObj))
             console.log(data);
             console.log('successfully loggedIn');
+            history.push('/Home');
             
         })
         .catch((err) => {

@@ -3,6 +3,7 @@ import React, { useState, useRef} from "react";
 import styled, { keyframes } from "styled-components";
 
 
+
 const move = keyframes`
 0%{
     opacity:0;
@@ -240,6 +241,7 @@ const Text = styled.div`
 `;
 
 function FormComponent(props) {
+
   
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
@@ -269,6 +271,7 @@ function FormComponent(props) {
 
   const LsubmitHandler = (event) => {
       event.preventDefault();
+      event.stopPropagation();
       
       const enteredEmail = LemailInputRef.current.value;
       const enteredPassword = LpasswordInputRef.current.value;
@@ -283,7 +286,7 @@ function FormComponent(props) {
       <BackgroundBox clicked={click}>
         <ButtonAnimate clicked={click} onClick={handleClick}></ButtonAnimate>
 
-        <Form className="signin" onSubmit={LsubmitHandler}>
+        <Form className="signin" onSubmit={LsubmitHandler} action="#">
           <Title>Sign In</Title>
           <Input type="email" name="email" id="emailId" placeholder="Email" required ref={LemailInputRef} />
           <Input
@@ -294,7 +297,7 @@ function FormComponent(props) {
             required ref={LpasswordInputRef}
           />
           <Link href="#"  >Forgot Your Password?</Link>
-          <Button>Sign In</Button>
+          <Button >Sign In</Button>
         </Form>
       
         <Form className="signup" onSubmit={submitHandler}>
