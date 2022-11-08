@@ -150,7 +150,7 @@ const Expenses = () => {
      </form>
         <div >
         {totalExpense > 10000 && (<button onClick={() => 
-                        dispatch(ThemeAction.onThemeChange())}>
+                        dispatch(ThemeAction.onThemeChange())}  className={classes.butn}>
                         Active Premium
                     </button>)}
         </div>

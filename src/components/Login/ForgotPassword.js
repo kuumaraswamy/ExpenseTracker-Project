@@ -23,7 +23,7 @@ const ForgotPassword = (props) => {
                     required
                     ref={emailInputRef}
                 />
-                <Button>Submit</Button>
+                <button>Submit</button>
             </form>
         </section>
     )

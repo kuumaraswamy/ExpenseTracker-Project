@@ -1,9 +1,9 @@
 import React from 'react'
-import axios from 'axios';
 import classes from './ProfileForm.module.css';
 import { BsGithub, BsGlobe } from 'react-icons/bs';
 import { useContext, useRef, useEffect } from 'react';
 import AuthContext from '../../Store/auth-context';
+import axios from 'axios'
 
 
 const ProfileForm = (props) => {

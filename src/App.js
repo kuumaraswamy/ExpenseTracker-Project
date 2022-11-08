@@ -19,8 +19,9 @@ function App() {
   // const authCntx = useContext(AuthContext);
   return (
 
-
+ 
     <Fragment>
+      <h1>Hello</h1>
       {/* <Authentication /> */}
     
       <Switch>
