@@ -21,7 +21,6 @@ function App() {
 
  
     <Fragment>
-      <h1>Hello</h1>
       {/* <Authentication /> */}
     
       <Switch>
